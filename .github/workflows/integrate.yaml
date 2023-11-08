@@ -1,33 +1,45 @@
 name: Integration
 
 on:
-    pull_request:
-        branches: [main]
+  pull_request:
+    branches: [main]
 
 permissions:
-    contents: read
-    
-jobs: 
-    depcheck:
-        name: Testing Depcheck
+  contents: read
 
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v3
+jobs:
+  depcheck:
+    name: Testing Depcheck
+    runs-on: ubuntu-latest
 
-            - name: Install Node.js
-              uses: actions/setup-node@v3
-               with:
-                    node-version: 18.17.0
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
-            - uses: pnpm/action-setup@v2
-              name: Install pnpm
-              with:
-                  version: 8.6.12
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.17.0'
 
-            - name: Test Depcheck
-              run: pnpm run depcheck
+      - name: Install pnpm
+        run: npm install -g pnpm@8.6.12
+
+      - name: Cache pnpm modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Run Depcheck
+        run: pnpm depcheck
+
+
 
     # typescript:
     #     name: Testing TypeScript
