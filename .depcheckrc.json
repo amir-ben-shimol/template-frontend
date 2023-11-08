@@ -1,0 +1,20 @@
+{
+	"ignores": [
+		"stylelint-config-recess-order",
+		"stylelint-config-standard-scss",
+		"stylelint-declaration-strict-value",
+		"chalk",
+		"figlet",
+		"pnpm",
+		"commitizen",
+		"lint-staged",
+		"prettier",
+		"@commitlint/cli",
+		"@types/node",
+		"stylelint",
+		"wait-on",
+		"open",
+		"prettier-plugin-sh",
+		"rimraf"
+	]
+}
