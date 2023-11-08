@@ -20,7 +20,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18.17.0'
+          node-version: '20.9.0'
 
       - name: Install pnpm
         run: npm install -g pnpm@8.6.12
@@ -53,80 +53,3 @@ jobs:
 
       - name: Test build
         run: pnpm build
-
-
-
-    # typescript:
-    #     name: Testing TypeScript
-
-    #     runs-on: ubuntu-latest
-    #     steps:
-    #         - name: Setup Node environment
-    #           uses: pnpm/action-setup@v2
-    #           with:
-    #               node-version: 18.17.0
-    #               package-manager: pnpm
-    #               package-manager-version: 8.6.12
-
-    #         - name: Test TypeScript
-    #           run: pnpm run type-check
-
-    # prettier:
-    #     name: Testing Prettier
-
-    #     runs-on: ubuntu-latest
-    #     steps:
-    #         - name: Setup Node environment
-    #           uses: pnpm/action-setup@v2
-    #           with:
-    #               node-version: 18.17.0
-    #               package-manager: pnpm
-    #               package-manager-version: 8.6.12
-
-    #         - name: Test Prettier
-    #           run: pnpm prettier
-
-    # eslint:
-    #     name: Testing ESLint
-
-    #     runs-on: ubuntu-latest
-    #     steps:
-    #         - name: Setup Node environment
-    #           uses: pnpm/action-setup@v2
-    #           with:
-    #               node-version: 18.17.0
-    #               package-manager: pnpm
-    #               package-manager-version: 8.6.12
-
-    #         - name: Test ESLint
-    #           run: pnpm lint
-
-    # stylelint:
-    #     name: Testing Stylelint
-
-    #     runs-on: ubuntu-latest
-    #     steps:
-    #         - name: Setup Node environment
-    #           uses: pnpm/action-setup@v2
-    #           with:
-    #               node-version: 18.17.0
-    #               package-manager: pnpm
-    #               package-manager-version: 8.6.12
-
-    #         - name: Test Stylelint
-    #           run: pnpm stylelint
-
-    # build:
-    #     name: Testing build
-
-    #     runs-on: ubuntu-latest
-    #     steps:
-    #         - name: Setup Node environment
-    #           uses: pnpm/action-setup@v2
-    #           with:
-    #               node-version: 18.17.0
-    #               package-manager: pnpm
-    #               package-manager-version: 8.6.12
-
-    #         - name: Test build
-    #           run: pnpm build

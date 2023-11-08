@@ -1,5 +1,8 @@
 export const Routes = {
 	main: '/',
-	login: '/login',
+	login: {
+		root: '/login',
+		otp: '/login/otp',
+	},
 	registration: '/reg',
 } as const;

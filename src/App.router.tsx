@@ -8,11 +8,12 @@ import { endProgress, startProgress } from './services/progress-bar';
 
 const LoginPage = lazy(() => import('./pages/Login'));
 const RegistrationPage = lazy(() => import('./pages/Registration'));
+const Otp = lazy(() => import('@/containers/Login/Otp'));
 
 const RouterBuilder = (isAuthenticated: boolean | null) => {
 	const unAuthorizedRoutes: RouteObject[] = [
 		{
-			path: RoutesList.login,
+			path: RoutesList.login.root,
 			element: <LoginPage />,
 			loader: async () => {
 				startProgress();
@@ -23,6 +24,21 @@ const RouterBuilder = (isAuthenticated: boolean | null) => {
 
 				return null;
 			},
+			children: [
+				{
+					path: RoutesList.login.otp,
+					element: <Otp />,
+					loader: async () => {
+						startProgress();
+
+						await import('@/containers/Login/Otp');
+
+						endProgress();
+
+						return null;
+					},
+				},
+			],
 		},
 		{
 			path: RoutesList.registration,
@@ -39,7 +55,7 @@ const RouterBuilder = (isAuthenticated: boolean | null) => {
 		},
 		{
 			path: '*',
-			element: <Navigate to={RoutesList.login} replace />,
+			element: <Navigate to={RoutesList.login.root} replace />,
 		},
 	];
 
