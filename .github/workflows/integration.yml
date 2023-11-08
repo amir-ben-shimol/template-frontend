@@ -8,8 +8,8 @@ permissions:
   contents: read
 
 jobs:
-  depcheck:
-    name: Testing Depcheck
+  test_pull_request:
+    name: Testing & Checking the code
     runs-on: ubuntu-latest
 
     steps:
@@ -38,6 +38,21 @@ jobs:
 
       - name: Run Depcheck
         run: pnpm depcheck
+
+      - name: Test TypeScript
+        run: pnpm run type-check
+
+      - name: Test Prettier
+        run: pnpm prettier
+
+      - name: Test ESLint
+        run: pnpm lint
+
+      - name: Test Stylelint
+        run: pnpm stylelint
+
+      - name: Test build
+        run: pnpm build
 
 
 
@@ -102,16 +117,16 @@ jobs:
     #           run: pnpm stylelint
 
     # build:
-        name: Testing build
+    #     name: Testing build
 
-        runs-on: ubuntu-latest
-        steps:
-            - name: Setup Node environment
-              uses: pnpm/action-setup@v2
-              with:
-                  node-version: 18.17.0
-                  package-manager: pnpm
-                  package-manager-version: 8.6.12
+    #     runs-on: ubuntu-latest
+    #     steps:
+    #         - name: Setup Node environment
+    #           uses: pnpm/action-setup@v2
+    #           with:
+    #               node-version: 18.17.0
+    #               package-manager: pnpm
+    #               package-manager-version: 8.6.12
 
-            - name: Test build
-              run: pnpm build
+    #         - name: Test build
+    #           run: pnpm build
