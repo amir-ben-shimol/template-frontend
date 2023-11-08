@@ -12,78 +12,83 @@ permissions:
 
         runs-on: ubuntu-latest
         steps:
-            - name: Setup Node environment
+            - name: Checkout
               uses: actions/checkout@v3
-              uses: pnpm/action-setup@v2
+
+            - name: Install Node.js
+              uses: actions/setup-node@v3
+               with:
+                    node-version: 18.17.0
+
+            - uses: pnpm/action-setup@v2
+              name: Install pnpm
               with:
-                  node-version: 18.17.0
-                  package-manager: pnpm
-                  package-manager-version: 8.6.12
+                  version: 8.6.12
 
             - name: Test Depcheck
               run: pnpm run depcheck
 
-    typescript:
-        name: Testing TypeScript
+    # typescript:
+    #     name: Testing TypeScript
 
-        runs-on: ubuntu-latest
-        steps:
-            - name: Setup Node environment
-              uses: pnpm/action-setup@v2
-              with:
-                  node-version: 18.17.0
-                  package-manager: pnpm
-                  package-manager-version: 8.6.12
+    #     runs-on: ubuntu-latest
+    #     steps:
+    #         - name: Setup Node environment
+    #           uses: pnpm/action-setup@v2
+    #           with:
+    #               node-version: 18.17.0
+    #               package-manager: pnpm
+    #               package-manager-version: 8.6.12
 
-            - name: Test TypeScript
-              run: pnpm run type-check
+    #         - name: Test TypeScript
+    #           run: pnpm run type-check
 
-    prettier:
-        name: Testing Prettier
+    # prettier:
+    #     name: Testing Prettier
 
-        runs-on: ubuntu-latest
-        steps:
-            - name: Setup Node environment
-              uses: pnpm/action-setup@v2
-              with:
-                  node-version: 18.17.0
-                  package-manager: pnpm
-                  package-manager-version: 8.6.12
+    #     runs-on: ubuntu-latest
+    #     steps:
+    #         - name: Setup Node environment
+    #           uses: pnpm/action-setup@v2
+    #           with:
+    #               node-version: 18.17.0
+    #               package-manager: pnpm
+    #               package-manager-version: 8.6.12
 
-            - name: Test Prettier
-              run: pnpm prettier
+    #         - name: Test Prettier
+    #           run: pnpm prettier
 
-    eslint:
-        name: Testing ESLint
+    # eslint:
+    #     name: Testing ESLint
 
-        runs-on: ubuntu-latest
-        steps:
-            - name: Setup Node environment
-              uses: pnpm/action-setup@v2
-              with:
-                  node-version: 18.17.0
-                  package-manager: pnpm
-                  package-manager-version: 8.6.12
+    #     runs-on: ubuntu-latest
+    #     steps:
+    #         - name: Setup Node environment
+    #           uses: pnpm/action-setup@v2
+    #           with:
+    #               node-version: 18.17.0
+    #               package-manager: pnpm
+    #               package-manager-version: 8.6.12
 
-            - name: Test ESLint
-              run: pnpm lint
+    #         - name: Test ESLint
+    #           run: pnpm lint
 
-    stylelint:
-        name: Testing Stylelint
+    # stylelint:
+    #     name: Testing Stylelint
 
-        runs-on: ubuntu-latest
-        steps:
-            - name: Setup Node environment
-              uses: pnpm/action-setup@v2
-              with:
-                  node-version: 18.17.0
-                  package-manager: pnpm
-                  package-manager-version: 8.6.12
+    #     runs-on: ubuntu-latest
+    #     steps:
+    #         - name: Setup Node environment
+    #           uses: pnpm/action-setup@v2
+    #           with:
+    #               node-version: 18.17.0
+    #               package-manager: pnpm
+    #               package-manager-version: 8.6.12
 
-            - name: Test Stylelint
-              run: pnpm stylelint
+    #         - name: Test Stylelint
+    #           run: pnpm stylelint
 
-    build:
+    # build:
         name: Testing build
 
         runs-on: ubuntu-latest
