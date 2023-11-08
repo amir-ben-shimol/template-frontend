@@ -10,6 +10,10 @@
 		"**/node_modules": true,
 		"**/dist": true
 	},
+	"files.exclude": {
+		"**/*.scss.d.ts": true,
+		"tsconfig.tsbuildinfo": true
+	},
 	"files.associations": {
 		"commit-msg": "shellscript"
 	},

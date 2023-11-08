@@ -6,7 +6,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 import sassDts from 'vite-plugin-sass-dts';
 
 export default defineConfig(({ mode }) => {
-	const appMode = process.env.AUTOMATION === 'true' ? 'test' : mode;
+	const appMode = process.env['AUTOMATION'] === 'true' ? 'test' : mode;
 
 	return {
 		server: {

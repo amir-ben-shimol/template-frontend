@@ -1,7 +1,7 @@
 import React, { type CSSProperties } from 'react';
 
 import { concatDiverseClasses } from '@/utils/component';
-import icons from '@/images/icons';
+import icons from '@/assets/icons';
 
 import classes from './USvg.module.scss';
 

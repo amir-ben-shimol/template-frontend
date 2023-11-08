@@ -9,7 +9,10 @@ import classes from './Header.module.scss';
 const HeaderView = () => {
 	return (
 		<div className={classes['container']}>
-			<NavLink className={({ isActive }) => concatClasses(classes, 'container__link', isActive ? 'container__link--active' : null)} to={Routes.login}>
+			<NavLink
+				className={({ isActive }) => concatClasses(classes, 'container__link', isActive ? 'container__link--active' : null)}
+				to={Routes.login.root}
+			>
 				Login
 			</NavLink>
 			<NavLink

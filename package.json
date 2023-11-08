@@ -33,6 +33,7 @@
 		"swr": "2.2.4"
 	},
 	"devDependencies": {
+		"@types/node": "20.9.0",
 		"@types/nprogress": "0.2.3",
 		"@types/react": "18.2.15",
 		"@types/react-dom": "18.2.7",
@@ -71,6 +72,6 @@
 	"packageManager": "pnpm@8.6.12",
 	"engines": {
 		"pnpm": "8.6.12",
-		"node": "18.17.0"
+		"node": "20.9.0"
 	}
 }

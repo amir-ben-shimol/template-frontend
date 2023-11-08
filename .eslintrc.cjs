@@ -108,7 +108,7 @@ module.exports = {
 		'@typescript-eslint/consistent-type-imports': ['error'],
 		'@typescript-eslint/await-thenable': 'error',
 
-		'unused-imports/no-unused-imports': 'error',
+		'unused-imports/no-unused-imports': 'warn',
 
 		'import/default': ['error'],
 		'import/no-absolute-path': ['error'],

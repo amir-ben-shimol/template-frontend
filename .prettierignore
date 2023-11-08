@@ -1,10 +1,6 @@
 node_modules
 build
-pnpm-workspace.yaml
 dist
 pnpm-lock.yaml
 .github
-auth-state.json
-.next
-out
 *.scss.d.ts

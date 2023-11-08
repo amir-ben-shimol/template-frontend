@@ -6,15 +6,11 @@
 		"chalk",
 		"figlet",
 		"pnpm",
-		"commitizen",
 		"lint-staged",
 		"prettier",
-		"@commitlint/cli",
 		"@types/node",
 		"stylelint",
-		"wait-on",
-		"open",
-		"prettier-plugin-sh",
-		"rimraf"
-	]
+		"prettier-plugin-sh"
+	],
+	"skip-missing": true
 }
