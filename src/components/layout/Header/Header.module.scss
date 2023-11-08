@@ -1,0 +1,24 @@
+@use "sass:map";
+
+@use "@/styles/variables.module.scss";
+
+.container {
+	display: flex;
+	gap: map.get(variables.$sizes, spacing-xl);
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	padding: map.get(variables.$sizes, spacing-l) map.get(variables.$sizes, spacing-xl);
+	border-bottom: 2px solid map.get(variables.$colors, purples-purple);
+
+	&__link {
+		font-size: 2rem;
+		font-weight: bold;
+		color: map.get(variables.$colors, blacks-chinese-black);
+		text-decoration: none;
+
+		&--active {
+			color: map.get(variables.$colors, purples-purple);
+		}
+	}
+}

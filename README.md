@@ -1,1 +1,1 @@
-# template-frontend
+# Template for vite application
