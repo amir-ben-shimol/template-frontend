@@ -39,6 +39,21 @@ jobs:
       - name: Run Depcheck
         run: pnpm depcheck
 
+      - name: Test TypeScript
+        run: pnpm run type-check÷÷
+
+      - name: Test Prettier
+        run: pnpm prettier
+
+      - name: Test ESLint
+        run: pnpm lint
+
+      - name: Test Stylelint
+        run: pnpm stylelint
+
+      - name: Test build
+        run: pnpm build
+
 
 
     # typescript:
