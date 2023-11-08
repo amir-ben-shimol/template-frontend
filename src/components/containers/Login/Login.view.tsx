@@ -8,6 +8,7 @@ const LoginView = () => {
 	return (
 		<section className={classes['container']}>
 			<div>login page</div>
+			<button type="button" />
 		</section>
 	);
 };

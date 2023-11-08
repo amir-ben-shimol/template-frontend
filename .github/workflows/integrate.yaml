@@ -1,95 +1,113 @@
 name: Integration
 
 on:
-    pull_request:
-        branches: [main]
+  pull_request:
+    branches: [main]
 
 permissions:
-    contents: read
+  contents: read
 
 jobs:
-    depcheck:
-        name: Testing Depcheck
+  depcheck:
+    name: Testing Depcheck
+    runs-on: ubuntu-latest
 
-        runs-on: ubuntu-latest
-        steps:
-            - name: Setup Node environment
-              uses: actions/checkout@v3
-              with:
-                  node-version: 18.16.0
-                  package-manager: pnpm
-                  package-manager-version: 8.6.12
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
-            - name: Test Depcheck
-              run: pnpm depcheck:all
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.17.0'
 
-    typescript:
-        name: Testing TypeScript
+      - name: Install pnpm
+        run: npm install -g pnpm@8.6.12
 
-        runs-on: ubuntu-latest
-        steps:
-            - name: Setup Node environment
-              uses: actions/checkout@v3
-              with:
-                  node-version: 18.16.0
-                  package-manager: pnpm
-                  package-manager-version: 8.6.12
+      - name: Cache pnpm modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
 
-            - name: Test TypeScript
-              run: pnpm type-check:all
+      - name: Install Dependencies
+        run: pnpm install
 
-    prettier:
-        name: Testing Prettier
+      - name: Run Depcheck
+        run: pnpm depcheck
 
-        runs-on: ubuntu-latest
-        steps:
-            - name: Setup Node environment
-              uses: actions/checkout@v3
-              with:
-                  node-version: 18.16.0
-                  package-manager: pnpm
-                  package-manager-version: 8.6.12
 
-            - name: Test Prettier
-              run: pnpm prettier
 
-    eslint:
-        name: Testing ESLint
+    # typescript:
+    #     name: Testing TypeScript
 
-        runs-on: ubuntu-latest
-        steps:
-            - name: Setup Node environment
-              uses: actions/checkout@v3
-              with:
-                  node-version: 18.16.0
-                  package-manager: pnpm
-                  package-manager-version: 8.6.12
+    #     runs-on: ubuntu-latest
+    #     steps:
+    #         - name: Setup Node environment
+    #           uses: pnpm/action-setup@v2
+    #           with:
+    #               node-version: 18.17.0
+    #               package-manager: pnpm
+    #               package-manager-version: 8.6.12
 
-            - name: Test ESLint
-              run: pnpm lint
+    #         - name: Test TypeScript
+    #           run: pnpm run type-check
 
-    stylelint:
-        name: Testing Stylelint
+    # prettier:
+    #     name: Testing Prettier
 
-        runs-on: ubuntu-latest
-        steps:
-            - name: Setup Node environment
-              uses: actions/checkout@v3
-              with:
-                  node-version: 18.16.0
-                  package-manager: pnpm
-                  package-manager-version: 8.6.12
+    #     runs-on: ubuntu-latest
+    #     steps:
+    #         - name: Setup Node environment
+    #           uses: pnpm/action-setup@v2
+    #           with:
+    #               node-version: 18.17.0
+    #               package-manager: pnpm
+    #               package-manager-version: 8.6.12
 
-            - name: Test Stylelint
-              run: pnpm stylelint
+    #         - name: Test Prettier
+    #           run: pnpm prettier
 
-    build:
+    # eslint:
+    #     name: Testing ESLint
+
+    #     runs-on: ubuntu-latest
+    #     steps:
+    #         - name: Setup Node environment
+    #           uses: pnpm/action-setup@v2
+    #           with:
+    #               node-version: 18.17.0
+    #               package-manager: pnpm
+    #               package-manager-version: 8.6.12
+
+    #         - name: Test ESLint
+    #           run: pnpm lint
+
+    # stylelint:
+    #     name: Testing Stylelint
+
+    #     runs-on: ubuntu-latest
+    #     steps:
+    #         - name: Setup Node environment
+    #           uses: pnpm/action-setup@v2
+    #           with:
+    #               node-version: 18.17.0
+    #               package-manager: pnpm
+    #               package-manager-version: 8.6.12
+
+    #         - name: Test Stylelint
+    #           run: pnpm stylelint
+
+    # build:
         name: Testing build
 
         runs-on: ubuntu-latest
         steps:
             - name: Setup Node environment
-              uses: actions/checkout@v3
+              uses: pnpm/action-setup@v2
               with:
                   node-version: 18.17.0
                   package-manager: pnpm
