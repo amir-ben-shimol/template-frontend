@@ -8,8 +8,8 @@ permissions:
   contents: read
 
 jobs:
-  depcheck:
-    name: Testing Depcheck
+  test_pull_request:
+    name: Testing & Checking the code
     runs-on: ubuntu-latest
 
     steps:
@@ -40,7 +40,7 @@ jobs:
         run: pnpm depcheck
 
       - name: Test TypeScript
-        run: pnpm run type-check÷÷
+        run: pnpm run type-check
 
       - name: Test Prettier
         run: pnpm prettier
