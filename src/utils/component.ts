@@ -1,4 +1,4 @@
-import type { IClasses } from '../interfaces/component';
+import type { TClasses } from '../types/ui/component';
 
 /**
  * The function returns the mapped class names list
@@ -8,7 +8,7 @@ import type { IClasses } from '../interfaces/component';
  * @param args The list of classes to get mapped
  * @returns The result string of the concatenation class names
  */
-export const concatClasses = <T extends IClasses>(
+export const concatClasses = <T extends TClasses>(
 	classes: T,
 	firstClass: keyof T | null,
 	secondClass: keyof T | null,
@@ -40,11 +40,7 @@ export const concatClasses = <T extends IClasses>(
  * @param args The list of classes to concat
  * @returns The result string of the concatenation class names
  */
-export const concatDiverseClasses = (
-	firstClass?: string,
-	secondClass?: string,
-	...args: ReadonlyArray<string | undefined>
-) => {
+export const concatDiverseClasses = (firstClass?: string, secondClass?: string, ...args: ReadonlyArray<string | undefined>) => {
 	const allClasses = [firstClass, secondClass, ...args];
 
 	return allClasses.reduce<string>((finalClasses, className, index) => {

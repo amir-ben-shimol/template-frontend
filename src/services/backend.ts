@@ -1,23 +1,17 @@
 import { preload } from 'swr';
 
-import type { IHttpMethod, IRefreshTokenRoute } from '@/interfaces/http';
+import type { THttpMethod, TRefreshTokenRoute } from '@/types/api/http';
 
 class BackendService {
-	private static routesWithRefreshToken: IRefreshTokenRoute[] = [
+	private static routesWithRefreshToken: TRefreshTokenRoute[] = [
 		{ method: 'GET', path: '/user/auth' },
 		{ method: 'GET', path: '/user/auth/refresh-token' },
 	];
 
-	private static fetcher = async <R = unknown, D = unknown>(
-		path: string,
-		method: IHttpMethod,
-		data?: D,
-	) => {
+	private static fetcher = async <R = unknown, D = unknown>(path: string, method: THttpMethod, data?: D) => {
 		const endpointPath = import.meta.env.VITE_BACKEND_URL + path;
 
-		const withRefresh = !!this.routesWithRefreshToken.find(
-			(route) => route.method === method && route.path === path,
-		);
+		const withRefresh = !!this.routesWithRefreshToken.find((route) => route.method === method && route.path === path);
 
 		const token = (withRefresh ? localStorage : sessionStorage).getItem('token');
 
