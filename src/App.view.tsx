@@ -1,6 +1,6 @@
-import React, { useMemo } from "react";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import RouterBuilder from "./App.router";
+import React, { useMemo } from 'react';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import RouterBuilder from './App.router';
 
 type TProps = {
 	readonly isLogin: boolean;

@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import HeaderView from "./Header.view";
+import HeaderView from './Header.view';
 
 const Header = () => {
 	return <HeaderView />;

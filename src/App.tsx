@@ -1,4 +1,4 @@
-import AppView from "./App.view";
+import AppView from './App.view';
 
 const App = () => {
 	const isLogin = false;

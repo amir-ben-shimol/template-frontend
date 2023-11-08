@@ -1,8 +1,8 @@
-@use "sass:map";
+@use 'sass:map';
 
-@use "@/styles/variables.module.scss";
+@use '@/styles/variables.module.scss';
 
-@import "nprogress/nprogress.css";
+@import 'nprogress/nprogress.css';
 
 * {
 	box-sizing: border-box;
@@ -19,7 +19,7 @@ body {
 	height: 100%;
 	margin: 0;
 	overflow-x: hidden;
-	font-family: "IBM Plex Sans", sans-serif;
+	font-family: 'IBM Plex Sans', sans-serif;
 	direction: ltr;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -45,7 +45,7 @@ button {
 }
 
 code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 img {

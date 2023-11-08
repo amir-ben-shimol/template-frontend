@@ -1,13 +1,13 @@
-import { lazy } from "react";
-import { Navigate, type RouteObject } from "react-router-dom";
+import { lazy } from 'react';
+import { Navigate, type RouteObject } from 'react-router-dom';
 
-import { Routes as RoutesList } from "./Routes";
+import { Routes as RoutesList } from './Routes';
 
-import AppLayout from "./App.layout";
-import { endProgress, startProgress } from "./services/progress-bar";
+import AppLayout from './App.layout';
+import { endProgress, startProgress } from './services/progress-bar';
 
-const LoginPage = lazy(() => import("./pages/Login"));
-const RegistrationPage = lazy(() => import("./pages/Registration"));
+const LoginPage = lazy(() => import('./pages/Login'));
+const RegistrationPage = lazy(() => import('./pages/Registration'));
 
 const RouterBuilder = (isAuthenticated: boolean | null) => {
 	const unAuthorizedRoutes: RouteObject[] = [
@@ -17,7 +17,7 @@ const RouterBuilder = (isAuthenticated: boolean | null) => {
 			loader: async () => {
 				startProgress();
 
-				await import("./pages/Login");
+				await import('./pages/Login');
 
 				endProgress();
 
@@ -30,7 +30,7 @@ const RouterBuilder = (isAuthenticated: boolean | null) => {
 			loader: async () => {
 				startProgress();
 
-				await import("./pages/Registration");
+				await import('./pages/Registration');
 
 				endProgress();
 
@@ -38,7 +38,7 @@ const RouterBuilder = (isAuthenticated: boolean | null) => {
 			},
 		},
 		{
-			path: "*",
+			path: '*',
 			element: <Navigate to={RoutesList.login} replace />,
 		},
 	];

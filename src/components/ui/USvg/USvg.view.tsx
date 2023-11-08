@@ -1,9 +1,9 @@
-import React, { type CSSProperties } from "react";
+import React, { type CSSProperties } from 'react';
 
-import { concatDiverseClasses } from "@/utils/component";
-import icons from "@/images/icons";
+import { concatDiverseClasses } from '@/utils/component';
+import icons from '@/images/icons';
 
-import classes from "./USvg.module.scss";
+import classes from './USvg.module.scss';
 
 type TProps = {
 	readonly name: keyof typeof icons;
@@ -13,7 +13,7 @@ type TProps = {
 };
 
 const USvgView = (props: TProps) => {
-	const svgClasses = concatDiverseClasses(classes["container"], props.className);
+	const svgClasses = concatDiverseClasses(classes['container'], props.className);
 
 	const clickHandler = (e: React.MouseEvent) => {
 		e.preventDefault();
@@ -29,8 +29,8 @@ const USvgView = (props: TProps) => {
 			version="1.1"
 			xmlnsXlink="http://www.w3.org/1999/xlink"
 			xmlns="http://www.w3.org/2000/svg"
-			viewBox={"0 0 " + icons[props.name][0]}
-			dangerouslySetInnerHTML={{ __html: icons[props.name][1] ?? "" }}
+			viewBox={'0 0 ' + icons[props.name][0]}
+			dangerouslySetInnerHTML={{ __html: icons[props.name][1] ?? '' }}
 			onClick={props.onClick && clickHandler}
 		/>
 	);

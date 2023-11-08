@@ -1,8 +1,8 @@
-import React, { type CSSProperties } from "react";
+import React, { type CSSProperties } from 'react';
 
-import type icons from "@/images/icons";
+import type icons from '@/images/icons';
 
-import USvgView from "./USvg.view";
+import USvgView from './USvg.view';
 
 type TProps = {
 	readonly name: keyof typeof icons;

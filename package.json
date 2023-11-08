@@ -19,6 +19,7 @@
 		"type-check": "tsc --project ./tsconfig.json",
 		"depcheck": "depcheck --config ./.depcheckrc.json",
 		"stylelint": "stylelint --config ./stylelint.config.cjs \"./src/**/*.scss\"",
+		"prettier:write": "prettier --write \"./**/*.{ts,tsx,scss,json,md}\"",
 		"template:page": "hygen component new-page",
 		"template:container": "hygen component new-container",
 		"template:layout": "hygen component new-layout",
