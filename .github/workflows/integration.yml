@@ -102,16 +102,16 @@ jobs:
     #           run: pnpm stylelint
 
     # build:
-        name: Testing build
+    #     name: Testing build
 
-        runs-on: ubuntu-latest
-        steps:
-            - name: Setup Node environment
-              uses: pnpm/action-setup@v2
-              with:
-                  node-version: 18.17.0
-                  package-manager: pnpm
-                  package-manager-version: 8.6.12
+    #     runs-on: ubuntu-latest
+    #     steps:
+    #         - name: Setup Node environment
+    #           uses: pnpm/action-setup@v2
+    #           with:
+    #               node-version: 18.17.0
+    #               package-manager: pnpm
+    #               package-manager-version: 8.6.12
 
-            - name: Test build
-              run: pnpm build
+    #         - name: Test build
+    #           run: pnpm build
