@@ -1,3 +1,4 @@
+/* eslint-disable no-prototype-builtins */
 import type { TClasses } from '../types/ui/component';
 
 /**
@@ -54,4 +55,22 @@ export const concatDiverseClasses = (firstClass?: string, secondClass?: string, 
 
 		return `${finalClasses} ${className}`;
 	}, '');
+};
+
+export const classNames = (classes: { [key: string]: string }, ...args: (string | { [key: string]: unknown })[]): string => {
+	const classArray: string[] = [];
+
+	args.forEach((arg) => {
+		if (typeof arg === 'string' && classes[arg]) {
+			classArray.push(classes[arg]!);
+		} else if (typeof arg === 'object') {
+			for (const key in arg) {
+				if (arg.hasOwnProperty(key) && arg[key] && classes[key]) {
+					classArray.push(classes[key]!);
+				}
+			}
+		}
+	});
+
+	return classArray.join(' ');
 };
