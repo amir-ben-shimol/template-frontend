@@ -17,7 +17,6 @@ module.exports = {
 	},
 	plugins: ['@typescript-eslint', 'unused-imports', 'import', 'deprecation', 'unicorn', 'jsx-a11y', 'react', 'react-hooks'],
 	rules: {
-		'capitalized-comments': ['error'],
 		'max-lines': ['error', { max: 150, skipBlankLines: true, skipComments: true }],
 		'indent': ['error', 'tab', { SwitchCase: 1 }],
 		'semi': ['error', 'always'],
@@ -43,21 +42,16 @@ module.exports = {
 		'no-implicit-globals': 'error',
 		'no-undef': 'off',
 		'no-useless-call': 'error',
-		'curly': ['error', 'all'],
 		'padding-line-between-statements': [
 			'error',
 			{
 				blankLine: 'always',
 				prev: [
 					'import',
-
 					'let',
 					'const',
 					'var',
-
-					'return',
 					'throw',
-					'if',
 					'for',
 					'switch',
 					'continue',
@@ -107,8 +101,6 @@ module.exports = {
 		'@typescript-eslint/no-use-before-define': ['error'],
 		'@typescript-eslint/consistent-type-imports': ['error'],
 		'@typescript-eslint/await-thenable': 'error',
-
-		'unused-imports/no-unused-imports': 'warn',
 
 		'import/default': ['error'],
 		'import/no-absolute-path': ['error'],
@@ -227,7 +219,7 @@ module.exports = {
 			},
 		},
 		{
-			files: ['./src/assets/icons.ts', './src/App.router.tsx'],
+			files: ['./src/assets/icons.ts', './src/App.router.tsx', './src/components/ui/UIModal/Modal.tsx'],
 			rules: {
 				'max-lines': 'off',
 			},

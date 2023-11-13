@@ -1,5 +1,5 @@
 ---
-to: src/components/ui/U<%= h.changeCase.pascalCase(name.toLowerCase()) %>/U<%= h.changeCase.pascalCase(name.toLowerCase()) %>.module.scss
+to: src/components/ui/UI<%= h.changeCase.pascalCase(name.toLowerCase()) %>/UI<%= h.changeCase.pascalCase(name.toLowerCase()) %>.module.scss
 ---
 .container {
     border: 1px solid red;

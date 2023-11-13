@@ -1,13 +1,13 @@
 ---
-to: src/components/ui/U<%= h.changeCase.pascalCase(name.toLowerCase()) %>/U<%= h.changeCase.pascalCase(name.toLowerCase()) %>.view.tsx
+to: src/components/ui/UI<%= h.changeCase.pascalCase(name.toLowerCase()) %>/UI<%= h.changeCase.pascalCase(name.toLowerCase()) %>.view.tsx
 ---
 <% name = name.toLowerCase() %>import React from 'react';
 
-import classes from './U<%= h.changeCase.pascalCase(name) %>.module.scss';
+import classes from './UI<%= h.changeCase.pascalCase(name) %>.module.scss';
 
 type TProps = object;
 
-const U<%= h.changeCase.pascalCase(name) %>View = () => {
+const UI<%= h.changeCase.pascalCase(name) %>View = () => {
   return (
     <div className={classes['container']}>
       <span><%= h.changeCase.pascalCase(name) %> UI</span>
@@ -15,4 +15,4 @@ const U<%= h.changeCase.pascalCase(name) %>View = () => {
   );
 };
 
-export default React.memo(U<%= h.changeCase.pascalCase(name) %>View);
+export default React.memo(UI<%= h.changeCase.pascalCase(name) %>View);
