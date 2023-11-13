@@ -1,6 +1,6 @@
 ---
-to: src/components/ui/U<%= h.changeCase.pascalCase(name.toLowerCase()) %>/index.ts
+to: src/components/ui/UI<%= h.changeCase.pascalCase(name.toLowerCase()) %>/index.ts
 ---
-<% name = name.toLowerCase() %>import U<%= h.changeCase.pascalCase(name) %> from './U<%= h.changeCase.pascalCase(name) %>';
+<% name = name.toLowerCase() %>import UI<%= h.changeCase.pascalCase(name) %> from './UI<%= h.changeCase.pascalCase(name) %>';
 
-export default U<%= h.changeCase.pascalCase(name) %>;
+export default UI<%= h.changeCase.pascalCase(name) %>;
