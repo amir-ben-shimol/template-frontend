@@ -1,5 +1,5 @@
 /* eslint-disable no-prototype-builtins */
-import type { TClasses } from '../types/ui/component';
+import type { Classes } from '../types/ui/component';
 
 /**
  * The function returns the mapped class names list
@@ -9,7 +9,7 @@ import type { TClasses } from '../types/ui/component';
  * @param args The list of classes to get mapped
  * @returns The result string of the concatenation class names
  */
-export const concatClasses = <T extends TClasses>(
+export const concatClasses = <T extends Classes>(
 	classes: T,
 	firstClass: keyof T | null,
 	secondClass: keyof T | null,
@@ -57,7 +57,7 @@ export const concatDiverseClasses = (firstClass?: string, secondClass?: string, 
 	}, '');
 };
 
-export const classNames = (classes: { [key: string]: string }, ...args: (string | { [key: string]: unknown })[]): string => {
+export const classNames = <T extends Classes>(classes: T, ...args: (string | { [key: string]: unknown })[]): string => {
 	const classArray: string[] = [];
 
 	args.forEach((arg) => {
@@ -65,7 +65,7 @@ export const classNames = (classes: { [key: string]: string }, ...args: (string 
 			classArray.push(classes[arg]!);
 		} else if (typeof arg === 'object') {
 			for (const key in arg) {
-				if (arg.hasOwnProperty(key) && arg[key] && classes[key]) {
+				if (Object.prototype.hasOwnProperty.call(arg, key) && arg[key] && classes[key]) {
 					classArray.push(classes[key]!);
 				}
 			}
