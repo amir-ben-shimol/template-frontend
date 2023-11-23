@@ -3,12 +3,16 @@ to: src/components/ui/UI<%= h.changeCase.pascalCase(name.toLowerCase()) %>/UI<%=
 ---
 <% name = name.toLowerCase() %>import React from 'react';
 
-import UI<%= h.changeCase.pascalCase(name) %>View from './UI<%= h.changeCase.pascalCase(name) %>.view';
+import classes from './UI<%= h.changeCase.pascalCase(name) %>.module.scss';
 
-type TProps = object;
+type Props = object;
 
 const UI<%= h.changeCase.pascalCase(name) %> = () => {
-  return <UI<%= h.changeCase.pascalCase(name) %>View />;
+  return (
+    <div className={classes['container']}>
+      <span><%= h.changeCase.pascalCase(name) %> UI</span>
+    </div>
+  );
 };
 
-export default React.memo(UI<%= h.changeCase.pascalCase(name) %>);
+export default React.memo(UI<%= h.changeCase.pascalCase(name)%>);

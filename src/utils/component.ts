@@ -57,7 +57,7 @@ export const concatDiverseClasses = (firstClass?: string, secondClass?: string, 
 	}, '');
 };
 
-export const classNames = (classes: { [key: string]: string }, ...args: (string | { [key: string]: unknown })[]): string => {
+export const classNames = (classes: TClasses, ...args: (string | { [key: string]: unknown })[]): string => {
 	const classArray: string[] = [];
 
 	args.forEach((arg) => {
@@ -65,7 +65,7 @@ export const classNames = (classes: { [key: string]: string }, ...args: (string 
 			classArray.push(classes[arg]!);
 		} else if (typeof arg === 'object') {
 			for (const key in arg) {
-				if (arg.hasOwnProperty(key) && arg[key] && classes[key]) {
+				if (Object.prototype.hasOwnProperty.call(arg, key) && arg[key] && classes[key]) {
 					classArray.push(classes[key]!);
 				}
 			}

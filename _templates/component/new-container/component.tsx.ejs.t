@@ -3,12 +3,16 @@ to: src/components/containers/<%= h.changeCase.pascalCase(pageName.toLowerCase()
 ---
 <% name = containerName.toLowerCase() %>import React from 'react';
 
-import <%= h.changeCase.pascalCase(name) %>View from './<%= h.changeCase.pascalCase(name) %>.view';
+import classes from './<%= h.changeCase.pascalCase(name) %>.module.scss';
 
-type TProps = object;
+type Props = object;
 
 const <%= h.changeCase.pascalCase(name) %> = () => {
-  return <<%= h.changeCase.pascalCase(name) %>View />;
+  return (
+    <div className={classes['container']}>
+      <span><%= h.changeCase.pascalCase(name) %> Container</span>
+    </div>
+  );
 };
 
-export default React.memo(<%= h.changeCase.pascalCase(name) %>);
+export default React.memo(<%= h.changeCase.pascalCase(name)%>);
