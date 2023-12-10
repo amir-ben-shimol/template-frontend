@@ -6,4 +6,3 @@ build
 tsconfig.tsbuildinfo
 *.module.scss.d.ts
 envs/.env.local
-envs/.env.production

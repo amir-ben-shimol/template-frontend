@@ -5,9 +5,7 @@ import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import sassDts from 'vite-plugin-sass-dts';
 
-export default defineConfig(({ mode }) => {
-	const appMode = process.env['AUTOMATION'] === 'true' ? 'test' : mode;
-
+export default defineConfig(() => {
 	return {
 		server: {
 			port: 8080,
@@ -20,6 +18,5 @@ export default defineConfig(({ mode }) => {
 		preview: {
 			port: 8080,
 		},
-		mode: appMode,
 	};
 });
